@@ -3,8 +3,10 @@ package com.visualteknologi.pegawaiapps.tampilpegawai;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.widget.Button;
 
@@ -62,6 +64,8 @@ public class TampilPegawaiActivity extends AppCompatActivity {
                         dataItemList = response.body().getData();
                         AdapterTampilPegawai adapterTampilPegawai = new AdapterTampilPegawai(TampilPegawaiActivity.this, dataItemList);
                         rvDataPegawai.setLayoutManager(new LinearLayoutManager(TampilPegawaiActivity.this, LinearLayoutManager.VERTICAL, true));
+                        //rvDataPegawai.setLayoutManager(new GridLayoutManager(TampilPegawaiActivity.this, 2));
+                        //rvDataPegawai.setLayoutManager(new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL));
                         rvDataPegawai.setAdapter(adapterTampilPegawai);
                     }
                 }
