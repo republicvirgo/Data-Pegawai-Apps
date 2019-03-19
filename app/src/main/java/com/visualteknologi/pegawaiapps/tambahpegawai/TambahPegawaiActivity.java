@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.visualteknologi.pegawaiapps.R;
 import com.visualteknologi.pegawaiapps.tambahpegawai.model.ResponseTambahPegawai;
 import com.visualteknologi.pegawaiapps.network.NetworkClient;
+import com.visualteknologi.pegawaiapps.tampilpegawai.TampilPegawaiActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -74,7 +75,7 @@ public class TambahPegawaiActivity extends AppCompatActivity {
                                 String pesan = response.body().getPesan();
 
                                 if(status){
-                                    startActivity(new Intent(TambahPegawaiActivity.this, TambahPegawaiActivity.class));
+                                    startActivity(new Intent(TambahPegawaiActivity.this, TampilPegawaiActivity.class));
                                     Toast.makeText(TambahPegawaiActivity.this, pesan, Toast.LENGTH_SHORT).show();
                                 } else {
                                     Toast.makeText(TambahPegawaiActivity.this, pesan, Toast.LENGTH_SHORT).show();
