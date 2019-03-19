@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.visualteknologi.pegawaiapps.R;
-import com.visualteknologi.pegawaiapps.model.ResponseTambahPegawai;
+import com.visualteknologi.pegawaiapps.tambahpegawai.model.ResponseTambahPegawai;
 import com.visualteknologi.pegawaiapps.network.NetworkClient;
 
 import retrofit2.Call;

@@ -1,6 +1,6 @@
 package com.visualteknologi.pegawaiapps.network;
 
-import com.visualteknologi.pegawaiapps.model.ResponseTambahPegawai;
+import com.visualteknologi.pegawaiapps.tambahpegawai.model.ResponseTambahPegawai;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
