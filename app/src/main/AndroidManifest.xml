@@ -11,6 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".detailpegawai.DetailPegawaiActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".tampilpegawai.TampilPegawaiActivity" />
+        </activity>
         <activity android:name=".tampilpegawai.TampilPegawaiActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
