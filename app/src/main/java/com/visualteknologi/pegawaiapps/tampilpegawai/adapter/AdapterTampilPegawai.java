@@ -1,6 +1,7 @@
 package com.visualteknologi.pegawaiapps.tampilpegawai.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.visualteknologi.pegawaiapps.R;
+import com.visualteknologi.pegawaiapps.detailpegawai.DetailPegawaiActivity;
 import com.visualteknologi.pegawaiapps.tampilpegawai.model.DataItem;
 
 import java.util.List;
@@ -31,7 +33,7 @@ public class AdapterTampilPegawai extends RecyclerView.Adapter<AdapterTampilPega
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdapterTampilPegawai.MyHolder myHolder, int position) {
+    public void onBindViewHolder(@NonNull final AdapterTampilPegawai.MyHolder myHolder, final int position) {
         final DataItem dataItem = dataItemList.get(position);
 
         myHolder.idPegawai.setText(dataItem.getIdPegawai());
@@ -39,6 +41,26 @@ public class AdapterTampilPegawai extends RecyclerView.Adapter<AdapterTampilPega
         myHolder.emailPegawai.setText(dataItem.getEmailPegawai());
         myHolder.noHpPegawai.setText(dataItem.getNoHpPegawai());
         myHolder.alamatPegawai.setText(dataItem.getAlamatPegawai());
+
+        //TODO : ketika item di klik
+        myHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(myHolder.itemView.getContext(), DetailPegawaiActivity.class);
+
+                // cara 1
+                /*intent.putExtra("id_pegawai", dataItemList.get(position).getIdPegawai());
+                intent.putExtra("nama_pegawai", dataItemList.get(position).getNamaPegawai());
+                intent.putExtra("email_pegawai", dataItemList.get(position).getEmailPegawai());
+                intent.putExtra("no_hp_pegawai", dataItemList.get(position).getNoHpPegawai());
+                intent.putExtra("alamat_pegawai", dataItemList.get(position).getAlamatPegawai());*/
+
+                // cara 2
+                intent.putExtra("data_pegawai", dataItem);
+
+                myHolder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -46,7 +68,7 @@ public class AdapterTampilPegawai extends RecyclerView.Adapter<AdapterTampilPega
         return dataItemList.size();
     }
 
-    //mwnyambung dari item dari layout item_list_data
+    //nyambung dari item dari layout item_list_data
     public class MyHolder extends RecyclerView.ViewHolder {
         public TextView namaPegawai, emailPegawai, noHpPegawai, alamatPegawai, idPegawai;
 
