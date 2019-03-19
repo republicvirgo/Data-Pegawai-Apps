@@ -1,6 +1,7 @@
 package com.visualteknologi.pegawaiapps.network;
 
 import com.visualteknologi.pegawaiapps.tambahpegawai.model.ResponseTambahPegawai;
+import com.visualteknologi.pegawaiapps.tampilpegawai.model.ResponseHapusPegawai;
 import com.visualteknologi.pegawaiapps.tampilpegawai.model.ResponseTampilPegawai;
 
 import retrofit2.Call;
@@ -15,13 +16,19 @@ public interface RestApi {
     @FormUrlEncoded
     @POST("tambah_pegawai")
     Call<ResponseTambahPegawai> tambah_pegawai(
-            @Field("nama_pegawai") String namaPegawai,
-            @Field("email_pegawai") String emailPegawai,
-            @Field("no_hp_pegawai") String noHpPegawai,
-            @Field("alamat_pegawai") String alamatPegawai
+        @Field("nama_pegawai") String namaPegawai,
+        @Field("email_pegawai") String emailPegawai,
+        @Field("no_hp_pegawai") String noHpPegawai,
+        @Field("alamat_pegawai") String alamatPegawai
     );
 
     @GET("tampil_pegawai")
     Call<ResponseTampilPegawai> tampil_pegawai();
+
+    @FormUrlEncoded
+    @POST("hapus_pegawai")
+    Call<ResponseHapusPegawai> hapus_pegawai (
+        @Field("id_pegawai") String idPegawai
+    );
 
 }
