@@ -86,6 +86,8 @@ public class EditPegawaiActivity extends AppCompatActivity {
                             if(status){
                                 startActivity(new Intent(EditPegawaiActivity.this, TampilPegawaiActivity.class));
                                 Toast.makeText(EditPegawaiActivity.this, pesan, Toast.LENGTH_SHORT).show();
+
+                                finish();
                             } else {
                                 Toast.makeText(EditPegawaiActivity.this, pesan, Toast.LENGTH_SHORT).show();
                             }

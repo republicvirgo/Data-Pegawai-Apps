@@ -94,6 +94,7 @@ public class AdapterTampilPegawai extends RecyclerView.Adapter<AdapterTampilPega
                 intent.putExtra("data_pegawai", dataItem);
 
                 myHolder.itemView.getContext().startActivity(intent);
+                ((Activity)context).finish();
             }
         });
 
