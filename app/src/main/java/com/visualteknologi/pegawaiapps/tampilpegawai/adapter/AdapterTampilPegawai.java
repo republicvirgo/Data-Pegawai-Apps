@@ -9,11 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.visualteknologi.pegawaiapps.R;
 import com.visualteknologi.pegawaiapps.detailpegawai.DetailPegawaiActivity;
+import com.visualteknologi.pegawaiapps.editpegawai.EditPegawaiActivity;
 import com.visualteknologi.pegawaiapps.network.NetworkClient;
 import com.visualteknologi.pegawaiapps.tampilpegawai.TampilPegawaiActivity;
 import com.visualteknologi.pegawaiapps.tampilpegawai.model.DataItem;
@@ -84,6 +86,17 @@ public class AdapterTampilPegawai extends RecyclerView.Adapter<AdapterTampilPega
             }
         });
 
+        //TODO : ketika edit di klik
+        myHolder.btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, EditPegawaiActivity.class);
+                intent.putExtra("data_pegawai", dataItem);
+
+                myHolder.itemView.getContext().startActivity(intent);
+            }
+        });
+
         //TODO : ketika item di klik
         myHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,9 +125,9 @@ public class AdapterTampilPegawai extends RecyclerView.Adapter<AdapterTampilPega
 
     //nyambung dari item dari layout item_list_data
     public class MyHolder extends RecyclerView.ViewHolder {
-        public TextView namaPegawai, emailPegawai, noHpPegawai, alamatPegawai, idPegawai;
+        public TextView namaPegawai, emailPegawai, noHpPegawai, alamatPegawai;
 
-        Button btnHapus;
+        ImageView btnHapus, btnEdit;
 
         public MyHolder(@NonNull View itemView) {
             super(itemView);
@@ -123,9 +136,9 @@ public class AdapterTampilPegawai extends RecyclerView.Adapter<AdapterTampilPega
             emailPegawai = itemView.findViewById(R.id.tvEmailPegawai);
             noHpPegawai = itemView.findViewById(R.id.tvNoHpPegawai);
             alamatPegawai = itemView.findViewById(R.id.tvAlamatPegawai);
-            //idPegawai = itemView.findViewById(R.id.tvIdPegawai);
 
             btnHapus = itemView.findViewById(R.id.btnHapus);
+            btnEdit = itemView.findViewById(R.id.btnEdit);
         }
     }
 }

@@ -113,12 +113,32 @@
 
                 </LinearLayout>
 
-                <Button
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="0.5"
-                    android:id="@+id/btnHapus"
-                    android:text="Hapus"/>
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <ImageView
+                        android:id="@+id/btnHapus"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/btn_delete" />
+
+                    <ImageView
+                        android:id="@+id/btnEdit"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/btn_edit" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
