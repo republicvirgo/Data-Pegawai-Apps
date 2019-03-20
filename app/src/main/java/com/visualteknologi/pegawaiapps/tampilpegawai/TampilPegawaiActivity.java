@@ -47,7 +47,8 @@ public class TampilPegawaiActivity extends AppCompatActivity {
         btnTambahPegawai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TampilPegawaiActivity.this, TambahPegawaiActivity.class));
+            startActivity(new Intent(TampilPegawaiActivity.this, TambahPegawaiActivity.class));
+            finish();
             }
         });
 
