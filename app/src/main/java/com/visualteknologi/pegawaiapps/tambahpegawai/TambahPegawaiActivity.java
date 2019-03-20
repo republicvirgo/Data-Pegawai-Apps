@@ -77,6 +77,7 @@ public class TambahPegawaiActivity extends AppCompatActivity {
                                 if(status){
                                     startActivity(new Intent(TambahPegawaiActivity.this, TampilPegawaiActivity.class));
                                     Toast.makeText(TambahPegawaiActivity.this, pesan, Toast.LENGTH_SHORT).show();
+                                    finish();
                                 } else {
                                     Toast.makeText(TambahPegawaiActivity.this, pesan, Toast.LENGTH_SHORT).show();
                                 }
