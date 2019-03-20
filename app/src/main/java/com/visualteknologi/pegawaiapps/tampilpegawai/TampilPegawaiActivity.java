@@ -1,7 +1,10 @@
 package com.visualteknologi.pegawaiapps.tampilpegawai;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +14,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.visualteknologi.pegawaiapps.R;
@@ -33,7 +38,7 @@ public class TampilPegawaiActivity extends AppCompatActivity {
     private RecyclerView rvDataPegawai;
     private List<DataItem> dataItemList;
 
-    Button btnTambahPegawai;
+    Button btnTambahPegawai, btnShowDialog;
 
     private long backPressedTime;
     private Toast backToast;
@@ -48,6 +53,7 @@ public class TampilPegawaiActivity extends AppCompatActivity {
         dataItemList = new ArrayList<>();
 
         btnTambahPegawai = findViewById(R.id.btnTambahPegawai);
+        btnShowDialog = findViewById(R.id.btnDialogCustom);
 
         //beri action untuk pindah ke form tambah
         btnTambahPegawai.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +61,35 @@ public class TampilPegawaiActivity extends AppCompatActivity {
             public void onClick(View v) {
             startActivity(new Intent(TampilPegawaiActivity.this, TambahPegawaiActivity.class));
             finish();
+            }
+        });
+
+        //TODO: beri action klik untuk dialog
+        btnShowDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: action custom dialog
+                final Dialog dialog = new Dialog(TampilPegawaiActivity.this);
+                dialog.setContentView(R.layout.custom_dialog);
+                dialog.setTitle("Title");
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+                //TODO: set komponen dialog
+                TextView text = dialog.findViewById(R.id.tvText);
+                text.setText("Dasar Tuman!!!");
+                ImageView image = dialog.findViewById(R.id.ivDialog);
+                image.setImageResource(R.drawable.tuman);
+
+                Button dialogClose = dialog.findViewById(R.id.btnClose);
+
+                //TODO: ketika button close di klik
+                dialogClose.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
             }
         });
 
