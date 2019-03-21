@@ -48,7 +48,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email Pegawai"
-                    android:inputType="textEmailAddress"/>
+                    android:inputType="textEmailAddress" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -57,12 +57,12 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/etNoHpPegawai"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/etNoHpPegawai"
                     android:hint="No Hp Pegawai"
                     android:inputType="number"
-                    android:maxLength="15"/>
+                    android:maxLength="15" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -71,25 +71,53 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/etAlamatPegawai"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:id="@+id/etAlamatPegawai"
+                    android:gravity="top"
                     android:hint="Alamat Pegawai"
-                    android:inputType="textMultiLine"
-                    android:gravity="top"/>
+                    android:inputType="textMultiLine" />
 
             </android.support.design.widget.TextInputLayout>
 
-            <Button
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvNamaGambar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5" />
+
+                <ImageView
+                    android:id="@+id/ivBtnGambar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:src="@android:drawable/ic_menu_camera" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/etCalendar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:focusableInTouchMode="false"
+                android:hint="--/--/----" />
+
+            <Button
                 android:id="@+id/btnInputPegawai"
-                android:text="Input Pegawai"
-                android:layout_marginRight="7dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
                 android:background="@color/colorPrimary"
+                android:text="Input Pegawai"
                 android:textColor="@android:color/white"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
 
